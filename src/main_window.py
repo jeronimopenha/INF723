@@ -52,7 +52,7 @@ class MainFrame(wx.Frame):
         self.emphasis = wx.ListBox(self.main_panel, style=wx.LB_MULTIPLE)
 
         # drawing panel
-        self.drawing_panel = wx.Panel(self.main_panel)
+        self.drawing_panel = DrawingPanel(self.main_panel)
         self.drawing_panel.SetBackgroundColour(wx.Colour(255, 255, 255))
         # ------------------------------------------------
 
@@ -72,8 +72,10 @@ class MainFrame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.file_menu_quit_handler, self.file_menu_quit)
         self.Bind(wx.EVT_MENU, self.file_menu_open_handler, self.file_menu_open)
         self.Bind(wx.EVT_MENU, self.about_menu_about_handler, self.about_menu_about)
-        self.Bind(wx.EVT_SIZE, self.main_frame_on_resize)
+        self.Bind(wx.EVT_SIZE, self.main_frame_on_resize_handler)
 
+
+    # Events handlers functions
     def file_menu_quit_handler(self, event):
         print("main frame file_menu_quit_handler")
         self.Close()
@@ -90,9 +92,21 @@ class MainFrame(wx.Frame):
         if self.db is not None:
             self.gen_tools()
             self.init_lists()
-            self.draw_tools()
+            self.drawing_panel.tools = self.tools
+            self.Update()
+
+    def about_menu_about_handler(self, event):
+        print("main frame about_menu_about_handler")
+        event.Skip()
+
+    def main_frame_on_resize_handler(self, event):
+        print("main frame main_frame_on_resize")
+        event.Skip()
+
+    # ----------------------------------------------------
 
     def gen_tools(self):
+        self.tools = []
         for t in self.db:
             nome = t["Nome"]
             periodico = t["Periodico"]
@@ -102,19 +116,51 @@ class MainFrame(wx.Frame):
             self.tools.append(Tool(nome, periodico, impacto, ano, funcionalidades))
 
     def init_lists(self):
+        to_filter_list = []
+        to_emphasis_list = []
         for t in self.tools:
-            self.filter.Append("teste")
+            for f in t.funcionalidades:
+                if f not in to_filter_list:
+                    to_filter_list.append(f)
+            if t.impacto not in to_emphasis_list:
+                to_emphasis_list.append(t.impacto)
+            if t.periodico not in to_emphasis_list:
+                to_emphasis_list.append(t.periodico)
+        to_filter_list.sort()
+        to_emphasis_list.sort()
+        self.filter.Clear()
+        self.emphasis.Clear()
+        for f in to_filter_list:
+            self.filter.Append(f)
+        for i in to_emphasis_list:
+            self.emphasis.Append(i)
 
-    def draw_tools(self):
-        pass
+class DrawingPanel(wx.Panel):
+    def __init__(self, *args, **kwargs):
+        self.tools = []
+        wx.Panel.__init__(self, *args, **kwargs)
+        self.SetBackgroundColour('#ffffff')
+        self.Bind(wx.EVT_PAINT, self.on_paint_handler)
 
-    def about_menu_about_handler(self, event):
-        print("main frame about_menu_about_handler")
-        event.Skip()
+    def on_paint_handler(self, event):
+        self.SetBackgroundColour('#ffffff')
+        pdc = wx.PaintDC(self)
+        gc = wx.GCDC(pdc)
+        gc.Clear()
 
-    def main_frame_on_resize(self, event):
-        print("main frame main_frame_on_resize")
-        event.Skip()
+        x = 100
+        y = 230
+        w = 50
+        h = 50
+        r = 8
+
+        for t in self.tools:
+            gc.SetPen(wx.Pen("black", 2))
+            #gc.SetBrush(wx.Brush((255, 0, 255, 128)))
+            gc.DrawRoundedRectangle(x, y, w, h, r)
+            gc.DrawText("Rounded rectangle", int(x + w + 10), int(y + h / 2))
+            x = x + 50
+            y = y +50
 
 
 class Tool:
@@ -128,161 +174,6 @@ class Tool:
         self.x_e = 0
         self.y_i = 0
         self.y_e = 0
-
-
-class DrawingPanel(wx.Panel):
-    def __init__(self, *args, **kwargs):
-        wx.Panel.__init__(self, *args, **kwargs)
-        self.SetBackgroundColour('#ededed')
-
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
-
-    # -----------------------------------------------------------------------
-
-    def OnPaint(self, event):
-        self.SetBackgroundColour('#ffffff')
-        """
-        ...
-        """
-        '''
-        pdc = wx.PaintDC(self)
-        gc = wx.GCDC(pdc)
-        gc.Clear()
-
-        #------------
-        # Square.
-        #------------
-
-        gc.SetPen(wx.Pen("red", 2))
-        gc.SetBrush(wx.Brush("yellow"))
-
-        x = 100
-        y = 30
-        w = 50
-        h = 50
-
-        # pt, sz
-        # or
-        # rect
-        # or
-        # x, y, width, height
-        gc.DrawRectangle(x , y, w, h)
-        gc.DrawText("Square", int(x+w+10), int(y+h/2))
-
-        #------------
-        # Rectangle.
-        #------------
-
-        gc.SetPen(wx.Pen("black", 2))
-        gc.SetBrush(wx.Brush((0, 255, 255, 255)))
-
-        x = 100
-        y = 130
-        w = 100
-        h = 50
-
-        # pt, sz
-        # or
-        # rect
-        # or
-        # x, y, width, height
-        gc.DrawRectangle(x , y, w, h)
-        gc.DrawText("Rectangle", int(x+w+10), int(y+h/2))
-
-        #------------
-        # Rounded rectangle.
-        #------------
-
-        gc.SetPen(wx.Pen("black", 2))
-        gc.SetBrush(wx.Brush((255, 0, 255, 128)))
-
-        x = 100
-        y = 230
-        w = 100
-        h = 50
-        r = 8
-
-        # pt, sz, radius
-        # or
-        # rect, radius
-        # or
-        # x, y, width, height, radius)
-        gc.DrawRoundedRectangle(x, y, w, h, r)
-        gc.DrawText("Rounded rectangle", int(x+w+10), int(y+h/2))
-
-        #------------
-        # Ellipse.
-        #------------
-
-        gc.SetPen(wx.Pen("gray", 2))
-        gc.SetBrush(wx.Brush("green"))
-
-        x = 100
-        y = 330
-        w = 100
-        h = 50
-
-        # pt, size
-        # or
-        # rect
-        # or
-        # x, y, width, height
-        gc.DrawEllipse(x, y, w, h)
-        gc.DrawText("Ellipse", int(x+w+10), int(y+h/2))
-
-        #------------
-        # Circle.
-        #------------
-
-        gc.SetPen(wx.Pen("red", 2))
-        gc.SetBrush(wx.Brush("#ffc0cb"))
-
-        x = 130
-        y = 455
-        r = 35
-
-        # pt, radius
-        # or
-        # x, y, radius
-        gc.DrawCircle(x, y, r)
-        gc.DrawText("Circle", int(x+45), int(y))
-
-        #------------
-        # Line.
-        #------------
-
-        gc.SetPen(wx.Pen("purple", 4))
-
-        x1 = 100
-        y1 = 545
-        x2 = 200
-        y2 = 545
-
-        # pt1, pt2
-        # or
-        # x1, y1, x2, y2
-        gc.DrawLine(x1, y1, x2, y2)
-        gc.DrawText("Line", int(x+w-10), int(y+80))
-
-        #------------
-        # Triangle.
-        #------------
-
-        gc.SetPen(wx.Pen("blue", 2))
-        gc.SetBrush(wx.Brush((150, 150, 150, 128)))
-
-        points = [(80, 80),
-                  (10, 10),
-                  (80, 10),
-                  (80, 80)
-                  ]
-        x = 90
-        y = 580
-
-        # points, xoffset=0, yoffset=0, fill_style=ODDEVEN_RULE
-        gc.DrawPolygon(points, x, y)
-        gc.DrawText("Triangle", int(x+w-5), int(y+h/2))
-        '''
 
 
 class MainApp(wx.App):
