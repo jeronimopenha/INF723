@@ -1,0 +1,57 @@
+[
+  {
+    "Nome": "Ferramenta_1",
+    "Periodico": "Periodico_1",
+    "Impacto": "10",
+    "Ano": 2012,
+    "Funcionalidades": [
+      "Funcionalidade_1",
+      "Funcionalidade_2",
+      "Funcionalidade_3"
+    ]
+  },
+  {
+    "Nome": "Ferramenta_2",
+    "Periodico": "Periodico_1",
+    "Impacto": "10",
+    "Ano": 2015,
+    "Funcionalidades": [
+      "Funcionalidade_2",
+      "Funcionalidade_3",
+      "Funcionalidade_4"
+    ]
+  },
+  {
+    "Nome": "Ferramenta_3",
+    "Periodico": "Periodico_2",
+    "Impacto": "5",
+    "Ano": 2017,
+    "Funcionalidades": [
+      "Funcionalidade_3",
+      "Funcionalidade_4",
+      "Funcionalidade_5"
+    ]
+  },
+  {
+    "Nome": "Ferramenta_4",
+    "Periodico": "Periodico_2",
+    "Impacto": "5",
+    "Ano": 2012,
+    "Funcionalidades": [
+      "Funcionalidade_4",
+      "Funcionalidade_5",
+      "Funcionalidade_6"
+    ]
+  },
+  {
+    "Nome": "Ferramenta_5",
+    "Periodico": "Periodico_3",
+    "Impacto": "7",
+    "Ano": 2015,
+    "Funcionalidades": [
+      "Funcionalidade_5",
+      "Funcionalidade_6",
+      "Funcionalidade_7"
+    ]
+  }
+]
