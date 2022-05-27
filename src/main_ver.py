@@ -1,12 +1,9 @@
-# bubbles_toy.py
 
 import wx
 import math
 import random
 
-# class MyBubble
-# class MyBubblePanel
-# class MyBubbleFrame
+
 
 #---------------------------------------------------------------------------
 
