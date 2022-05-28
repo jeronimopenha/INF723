@@ -163,5 +163,170 @@
       "Funcionalidade_6",
       "Funcionalidade_7"
     ]
+  },
+  {
+    "name": "Ferramenta_1",
+    "source": "source_1",
+    "impact": "10",
+    "year": 2012,
+    "filter": [
+      "Funcionalidade_1",
+      "Funcionalidade_2",
+      "Funcionalidade_3"
+    ]
+  },
+  {
+    "name": "Ferramenta_2",
+    "source": "source_1",
+    "impact": "10",
+    "year": 2015,
+    "filter": [
+      "Funcionalidade_2",
+      "Funcionalidade_3",
+      "Funcionalidade_4"
+    ]
+  },
+  {
+    "name": "Ferramenta_3",
+    "source": "source_2",
+    "impact": "5",
+    "year": 2017,
+    "filter": [
+      "Funcionalidade_3",
+      "Funcionalidade_4",
+      "Funcionalidade_5"
+    ]
+  },
+  {
+    "name": "Ferramenta_4",
+    "source": "source_2",
+    "impact": "5",
+    "year": 2012,
+    "filter": [
+      "Funcionalidade_4",
+      "Funcionalidade_5",
+      "Funcionalidade_6"
+    ]
+  },
+  {
+    "name": "Ferramenta_5",
+    "source": "source_3",
+    "impact": "7",
+    "year": 2015,
+    "filter": [
+      "Funcionalidade_5",
+      "Funcionalidade_6",
+      "Funcionalidade_7"
+    ]
+  },
+  {
+    "name": "Ferramenta_1",
+    "source": "source_1",
+    "impact": "10",
+    "year": 2012,
+    "filter": [
+      "Funcionalidade_1",
+      "Funcionalidade_2",
+      "Funcionalidade_3"
+    ]
+  },
+  {
+    "name": "Ferramenta_2",
+    "source": "source_1",
+    "impact": "10",
+    "year": 2015,
+    "filter": [
+      "Funcionalidade_2",
+      "Funcionalidade_3",
+      "Funcionalidade_4"
+    ]
+  },
+  {
+    "name": "Ferramenta_3",
+    "source": "source_2",
+    "impact": "5",
+    "year": 2017,
+    "filter": [
+      "Funcionalidade_3",
+      "Funcionalidade_4",
+      "Funcionalidade_5"
+    ]
+  },
+  {
+    "name": "Ferramenta_4",
+    "source": "source_2",
+    "impact": "5",
+    "year": 2012,
+    "filter": [
+      "Funcionalidade_4",
+      "Funcionalidade_5",
+      "Funcionalidade_6"
+    ]
+  },
+  {
+    "name": "Ferramenta_5",
+    "source": "source_3",
+    "impact": "7",
+    "year": 2015,
+    "filter": [
+      "Funcionalidade_5",
+      "Funcionalidade_6",
+      "Funcionalidade_7"
+    ]
+  },
+  {
+    "name": "Ferramenta_1",
+    "source": "source_1",
+    "impact": "10",
+    "year": 2012,
+    "filter": [
+      "Funcionalidade_1",
+      "Funcionalidade_2",
+      "Funcionalidade_3"
+    ]
+  },
+  {
+    "name": "Ferramenta_2",
+    "source": "source_1",
+    "impact": "10",
+    "year": 2015,
+    "filter": [
+      "Funcionalidade_2",
+      "Funcionalidade_3",
+      "Funcionalidade_4"
+    ]
+  },
+  {
+    "name": "Ferramenta_3",
+    "source": "source_2",
+    "impact": "5",
+    "year": 2017,
+    "filter": [
+      "Funcionalidade_3",
+      "Funcionalidade_4",
+      "Funcionalidade_5"
+    ]
+  },
+  {
+    "name": "Ferramenta_4",
+    "source": "source_2",
+    "impact": "5",
+    "year": 2012,
+    "filter": [
+      "Funcionalidade_4",
+      "Funcionalidade_5",
+      "Funcionalidade_6"
+    ]
+  },
+  {
+    "name": "Ferramenta_5",
+    "source": "source_3",
+    "impact": "7",
+    "year": 2015,
+    "filter": [
+      "Funcionalidade_5",
+      "Funcionalidade_6",
+      "Funcionalidade_7"
+    ]
   }
 ]

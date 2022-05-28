@@ -13,13 +13,10 @@ class MainFrame(Frame):
 
         # basic database information
         self.db = None
-        self.tools = []
-        self.filtered = []
-        self.emphasized = []
 
         # basic frame configurations
         Frame.__init__(self, *args, **kwargs)
-        Frame.SetSize(self, 800, 600)
+        Frame.SetSize(self, 1024, 768)
         Frame.Center(self)
 
         # main panel
@@ -76,6 +73,7 @@ class MainFrame(Frame):
         self.Bind(EVT_MENU, self.file_menu_open_handler, self.file_menu_open)
         self.Bind(EVT_MENU, self.about_menu_about_handler, self.about_menu_about)
         self.Bind(EVT_CLOSE, self.main_frame_on_close_handler)
+        self.Bind(EVT_LISTBOX, self.filter_handler, self.filter)
 
     # Events handlers functions
 
@@ -97,24 +95,29 @@ class MainFrame(Frame):
             with open(file_dialog.GetPath(), encoding='utf-8') as db_json:
                 self.db = json.load(db_json)
         if self.db is not None:
-            self.gen_tools()
-            self.init_lists()
-            self.drawing_panel.tools = self.tools
+            tools = self.gen_tools()
+            self.init_lists(tools)
+            self.drawing_panel.set_tools(tools)
+            f = []
+            self.drawing_panel.set_filter(f)
 
     def about_menu_about_handler(self, event):
         print("main frame about_menu_about_handler")
         event.Skip()
 
-    # def main_frame_on_resize_handler(self, event):
-    #    print("main frame main_frame_on_resize")
-    #    event.Skip()
+    def filter_handler(self, event):
+        f = []
+        opts = self.filter.GetStrings()
+        for i in self.filter.GetSelections():
+              f.append(opts[i])
+        self.drawing_panel.set_filter(f)
+        event.Skip()
 
     # ----------------------------------------------------
 
     def gen_tools(self):
-        x_m = self.drawing_panel.Size[0]
-        y_m = self.drawing_panel.Size[1]
-        self.tools = []
+        tools = []
+        c = 0
         for t in self.db:
             attributes = {}
             attributes["name"] = t["name"]
@@ -123,16 +126,19 @@ class MainFrame(Frame):
             attributes["year"] = t["year"]
             attributes["filter"] = t["filter"]
             tool = Tool(attributes)
-            tool.x = random.randint(0, x_m)
-            tool.x_m = x_m
-            tool.y = random.randint(0, y_m)
-            tool.y_m = y_m
-            self.tools.append(tool)
+            i_w = self.drawing_panel.i_w + 5
+            i_h = self.drawing_panel.i_h + 5
+            tool.top_x = random.randint(0, i_w)
+            tool.top_y = i_h
 
-    def init_lists(self):
+            c = c+1
+            tools.append(tool)
+        return tools
+
+    def init_lists(self, tools):
         to_filter_list = []
         to_emphasis_list = []
-        for t in self.tools:
+        for t in tools:
             for f in t.attributes["filter"]:
                 if f not in to_filter_list:
                     to_filter_list.append(f)
