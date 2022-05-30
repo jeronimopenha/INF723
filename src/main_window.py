@@ -1,4 +1,5 @@
 import json
+import logging
 import random
 
 from wx import *
@@ -159,7 +160,7 @@ class MainFrame(Frame):
 class MainApp(App):
 
     def OnInit(self):
-        print("main app on init")
+        logging.info("MAIN: app on init")
         frame = MainFrame(None, title="VISOR")
         self.SetTopWindow(frame)
         frame.Show(True)

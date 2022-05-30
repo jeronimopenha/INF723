@@ -1,11 +1,12 @@
 from wx import *
-
+from math import ceil
 
 class Tool:
     def __init__(self, attributes: {}, x: int = 0, y: int = 0, line_color="BLACK", background_color="WHITE",
                  time_to_grow: int = 1000, timer_set: int = 20):
-        self.BASE_SIZE = 50
+        self.BASE_SIZE = 30
         self.BASE_MOVE_STEP = 5
+        self.initialized = False
 
         self.attributes = attributes
         self.top_x = x
@@ -19,17 +20,18 @@ class Tool:
         self.cell = None
         self.emphasis = 0
         self.is_filtered = False
+        self.move_return = False
 
     def draw(self, dc) -> None:
-        if self.move_to_cell():
-            dc.SetPen(Pen(self.line_color, 1))
-            dc.DrawRoundedRectangle(int(self.top_x), int(self.top_y), int(self.actual_width), int(self.actual_height),
+        #if self.move_return and self.initialized:
+        dc.SetPen(Pen(self.line_color, 1))
+        dc.DrawRoundedRectangle(int(self.top_x), int(self.top_y), int(self.actual_width), int(self.actual_height),
                                     2)
 
     def move_to_cell(self):
         xc, yc = self.cell.top_x, self.cell.top_y
         xp, yp = self.top_x, self.top_y
-        up_size=True
+        up_size = True
         if xp != xc or yp != yc:
             up_size = False
             x, y = self.calc_new_coords()
@@ -40,11 +42,15 @@ class Tool:
                 y = yc
             self.top_x = x
             self.top_y = y
+        else:
+            self.initialized = True
 
-        self.update_size(up_size)
+        return_flag = True
         if self.top_y < 0 or self.top_y > self.cell.y_l:
-            return False
-        return True
+            up_size = False
+            return_flag = False
+        self.update_size(up_size)
+        self.move_return =  return_flag
 
     def calc_new_coords(self) -> (int, int):
         y_l = self.cell.y_l
@@ -74,9 +80,9 @@ class Tool:
         h_max = self.cell.height
         w_min = self.BASE_SIZE
         h_min = self.BASE_SIZE
-        time_step = self.time_to_grow // self.timer_set
-        w_step = w_max//w_min
-        h_step = h_max // h_min
+        time_step = ceil(self.time_to_grow / self.timer_set)
+        w_step = ceil((w_max - w_min) / time_step)
+        h_step = ceil((h_max - h_min) / time_step)
 
         if upsize:
             if self.actual_width < w_max:

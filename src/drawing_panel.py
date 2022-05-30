@@ -15,7 +15,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
         # constants
         self.cell_width = 230
         self.cell_height = 70
-        self.hor_total_free_space_min = 0.2
+        self.hor_total_free_space_min = 150
         self.vertical_gap = 30
         self.min_needed_width = 1100
 
@@ -25,6 +25,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
         self.tools = []
         self.filter = []
         self.emphasis = []
+        self.filtered_tools = 0
 
         self.w_w = 0
         self.w_h = 0
@@ -67,7 +68,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
     def key_up_handler(self, event):
         keycode = event.GetUnicodeKey()
         print(keycode)
-        if keycode == 90: #
+        if keycode == 90:  #
             self.zoom = 1.0
             self.update_drawing()
         event.Skip()
@@ -97,13 +98,15 @@ class DrawingPanel(scrolled.ScrolledPanel):
         dc.Clear()
 
         dc.SetBrush(Brush("WHITE"))
-        dc.SetPen(Pen("BLACK", 2))
+        dc.SetPen(Pen("WHITE", 2))
         dc.DrawRectangle(0, 0, self.i_w, self.i_h)
-        #dc.SetBrush(Brush("LIGHT BLUE"))
-        for c in self.showed_cells:
-            #dc.SetBrush(Brush("LIGHT BLUE"))
-            dc.DrawRectangle(c.top_x, c.top_y, c.width, c.height)
+        dc.SetBrush(Brush("PINK"))
+        #for c in self.origin_cells:
+            # dc.SetBrush(Brush("LIGHT BLUE"))
+        #    dc.DrawRectangle(c.top_x, c.top_y, c.width, c.height)
         dc.SetBrush(Brush("LIGHT BLUE"))
+        for tool in self.tools:
+            tool.move_to_cell()
         for tool in self.tools:
             tool.draw(dc)
         self.image = Bitmap.ConvertToImage(self.bitmap)
@@ -124,31 +127,13 @@ class DrawingPanel(scrolled.ScrolledPanel):
             self.i_w = self.min_needed_width
 
         # verify the needed height to show all is_filtered tools
-        max_cells_per_line = self.i_w * (1 - self.hor_total_free_space_min) // self.cell_width
-        # TODO
-        # needed_lines = ceil(len(self.filter) / max_cells_per_line)
-        needed_lines = ceil(len(self.tools) / max_cells_per_line)
-        min_needed_height = needed_lines * self.cell_height + needed_lines * self.vertical_gap + self.vertical_gap
-
-        self.i_h = self.w_h if min_needed_height < self.w_h else min_needed_height
-
-        if self.bitmap is None:
-            self.bitmap = Bitmap(self.i_w, self.i_h)
-        elif self.bitmap.Size != (self.i_w, self.i_h):
-            self.bitmap = Bitmap(self.i_w, self.i_h)
-
+        max_cells_per_line = (self.i_w - self.hor_total_free_space_min) // self.cell_width
         free_horizontal_space = self.i_w - (max_cells_per_line * self.cell_width)
         horizontal_gap = free_horizontal_space // max_cells_per_line
 
         cells_per_line = max_cells_per_line
         self.showed_cells.clear()
-
         for i in range(len(self.tools)):
-            # waiting_cells_qty = len(self.tools) - i + 1
-            # if waiting_cells_qty < max_cells_per_line:
-            #    cells_per_line = waiting_cells_qty
-            #    horizontal_gap = free_horizontal_space // cells_per_line
-
             l = i // cells_per_line
             c = i % cells_per_line
 
@@ -158,6 +143,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
             cell = Cell(int(x), int(y), self.cell_width, self.cell_height, self.i_w, self.i_h)
             self.showed_cells.append(cell)
 
+        self.origin_cells.clear()
         for i in range(int(max_cells_per_line)):
             l = i // cells_per_line
             c = i % cells_per_line
@@ -165,19 +151,45 @@ class DrawingPanel(scrolled.ScrolledPanel):
             x = c * self.cell_width + c * horizontal_gap + horizontal_gap // 2
             y = self.i_h + 10
 
-            cell = Cell(int(x), int(y), self.cell_width, self.cell_height, self.i_w + 5, self.i_h + 5)
+            cell = Cell(int(x), int(y), self.cell_width, self.cell_height, self.i_w, self.i_h + 5)
             self.origin_cells.append(cell)
 
+        self.verify_filtered_cells()
+        needed_lines = ceil(self.filtered_tools / max_cells_per_line)
+        min_needed_height = needed_lines * self.cell_height + needed_lines * self.vertical_gap + self.vertical_gap
+
+        self.i_h = max(self.w_h, min_needed_height)
+
+        needed_rework = False
+        if self.bitmap is None:
+            self.bitmap = Bitmap(self.i_w, self.i_h)
+            needed_rework = True
+        elif self.bitmap.Size != (self.i_w, self.i_h):
+            self.bitmap = Bitmap(self.i_w, self.i_h)
+            needed_rework = True
+        if needed_rework:
+            for cell in self.showed_cells:
+                cell.x_l, cell.y_l = self.i_w, self.i_h
+            for cell in self.origin_cells:
+                cell.top_y = self.i_h + 5
+                cell.x_l, cell.y_l = self.i_w, self.i_h+5
         self.set_cells_to_tools()
 
-    def set_cells_to_tools(self):
+    def verify_filtered_cells(self):
+        self.filtered_tools = 0
         for t in self.tools:
             t.is_filtered = False
             for f in self.filter:
+                if t.is_filtered:
+                    break
                 for f_t in t.attributes["filter"]:
                     if f_t == f:
                         t.is_filtered = True
+                        self.filtered_tools += 1
                         break
+
+
+    def set_cells_to_tools(self):
         i = 0
         for tool in self.tools:
             if tool.is_filtered:
@@ -219,7 +231,8 @@ class DrawingPanel(scrolled.ScrolledPanel):
 
             # if new height is too large then recalculate sizes to fit
             if nh >= ch:
-                nh = ch - 20
+                #nh = nh - 20
+                nh = nh - 20
                 nw = int(nh / self.aspect)
 
             # Apply zoom
