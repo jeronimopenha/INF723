@@ -1,9 +1,10 @@
 from wx import *
 from math import ceil
 
+
 class Tool:
     def __init__(self, attributes: {}, x: int = 0, y: int = 0, line_color="BLACK", background_color="WHITE",
-                 time_to_grow: int = 1000, timer_set: int = 20):
+                 time_to_grow: int = 1000, timer_set: int = 30):
         self.BASE_SIZE = 30
         self.BASE_MOVE_STEP = 5
         self.initialized = False
@@ -21,19 +22,34 @@ class Tool:
         self.emphasis = 0
         self.is_filtered = False
         self.move_return = False
+        self.sizing_return = False
+        self.drawing = False
+
+    def in_motion(self):
+        return self.sizing_return or self.move_return or self.drawing
 
     def draw(self, dc) -> None:
-        #if self.move_return and self.initialized:
-        dc.SetPen(Pen(self.line_color, 1))
-        dc.DrawRoundedRectangle(int(self.top_x), int(self.top_y), int(self.actual_width), int(self.actual_height),
-                                    2)
+        if True:
+            if True:
+                dc.SetPen(Pen(self.line_color, 1))
+                dc.DrawRoundedRectangle(int(self.top_x), int(self.top_y), int(self.actual_width),
+                                        int(self.actual_height),
+                                        2)
+            self.drawing = False
 
     def move_to_cell(self):
         xc, yc = self.cell.top_x, self.cell.top_y
         xp, yp = self.top_x, self.top_y
-        up_size = True
-        if xp != xc or yp != yc:
-            up_size = False
+        in_movement = False
+        upsize = True
+        if yc == self.cell.y_l and not self.initialized:
+            x = xc
+            y = yc
+            self.top_x = x
+            self.top_y = y
+            self.initialized = True
+            return
+        elif xp != xc or yp != yc:
             x, y = self.calc_new_coords()
 
             if abs(x - xc) < self.BASE_MOVE_STEP:
@@ -42,15 +58,15 @@ class Tool:
                 y = yc
             self.top_x = x
             self.top_y = y
-        else:
-            self.initialized = True
+            in_movement = True
+            upsize = False
 
-        return_flag = True
+        self.move_return = in_movement
+        if in_movement:
+            self.drawing = True
         if self.top_y < 0 or self.top_y > self.cell.y_l:
-            up_size = False
-            return_flag = False
-        self.update_size(up_size)
-        self.move_return =  return_flag
+            upsize = False
+        self.update_size(upsize)
 
     def calc_new_coords(self) -> (int, int):
         y_l = self.cell.y_l
@@ -75,7 +91,7 @@ class Tool:
                 y = y + self.BASE_MOVE_STEP
         return x, y_l - y
 
-    def update_size(self, upsize) -> None:
+    def update_size(self, upsize:bool) -> None:
         w_max = self.cell.width
         h_max = self.cell.height
         w_min = self.BASE_SIZE
@@ -84,21 +100,33 @@ class Tool:
         w_step = ceil((w_max - w_min) / time_step)
         h_step = ceil((h_max - h_min) / time_step)
 
+        sizing = False
         if upsize:
             if self.actual_width < w_max:
                 self.actual_width += w_step
+                sizing = True
             if self.actual_height < h_max:
                 self.actual_height += h_step
-            if self.actual_width >= w_max:
+                sizing = True
+            if self.actual_width > w_max:
                 self.actual_width = w_max
-            if self.actual_height >= h_max:
+                sizing = True
+            if self.actual_height > h_max:
                 self.actual_height = h_max
+                sizing = True
         else:
             if self.actual_width > w_min:
                 self.actual_width -= w_step
+                sizing = True
             if self.actual_height > h_min:
                 self.actual_height -= h_step
-            if self.actual_width <= w_min:
+                sizing = True
+            if self.actual_width < w_min:
                 self.actual_width = w_min
-            if self.actual_height <= h_min:
+                sizing = True
+            if self.actual_height < h_min:
                 self.actual_height = h_min
+                sizing = True
+        self.sizing_return = sizing
+        if sizing:
+            self.drawing = True

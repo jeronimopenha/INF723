@@ -49,6 +49,7 @@ class ImagePanel(scrolledpanel.ScrolledPanel):
 
     def Load(self, file: str) -> None:
         """Load the image file into the control for display"""
+        '''
         #self.bitmap = wx.Bitmap(file, wx.BITMAP_TYPE_ANY)
         self.bitmap = wx.Bitmap(1920,1080)
         temp_dc = wx.MemoryDC()
@@ -67,6 +68,7 @@ class ImagePanel(scrolledpanel.ScrolledPanel):
         self.bmpImage.SetBitmap(self.bitmap)
 
         self.ScaleToFit()
+        '''
 
     def Clear(self):
         """Set the displayed image to blank"""

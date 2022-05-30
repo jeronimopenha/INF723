@@ -123,7 +123,7 @@ class MainFrame(Frame):
         for t in self.db:
             attributes = {"name": t["name"], "source": t["source"], "impact": t["impact"], "year": t["year"],
                           "filter": t["filter"]}
-            tool = Tool(attributes)
+            tool = Tool(attributes, timer_set=self.drawing_panel.timer_interval)
             i_w = self.drawing_panel.i_w + 5
             i_h = self.drawing_panel.i_h + 5
             tool.top_x = random.randint(0, i_w)
