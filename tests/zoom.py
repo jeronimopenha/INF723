@@ -146,7 +146,7 @@ class ImagePanel(scrolledpanel.ScrolledPanel):
         self.blank = wx.Bitmap(1, 1)
 
         self.Bind(wx.EVT_SIZE, self.OnSize)
-        self.Bind(wx.EVT_MOUSEWHEEL, self.OnMouseWheel)
+        self.Bind(wx.EVT_MOUSEWHEEL, self.on_mouse_wheel)
 
         self.SetupScrolling()
 
@@ -154,17 +154,17 @@ class ImagePanel(scrolledpanel.ScrolledPanel):
 
     def OnSize(self, event):
         """When panel is resized, scale the image to fit"""
-        self.ScaleToFit()
+        self.scale_to_fit()
         event.Skip()
 
-    def OnMouseWheel(self, event):
+    def on_mouse_wheel(self, event):
         """zoom in/out on CTRL+scroll"""
         m = wx.GetMouseState()
 
         if m.ControlDown():
             delta = 0.1 * event.GetWheelRotation() / event.GetWheelDelta()
             self.zoom = max(1, self.zoom + delta)
-            self.ScaleToFit()
+            self.scale_to_fit()
 
         event.Skip()
 
@@ -177,14 +177,14 @@ class ImagePanel(scrolledpanel.ScrolledPanel):
 
         self.bmpImage.SetBitmap(self.bitmap)
 
-        self.ScaleToFit()
+        self.scale_to_fit()
 
     def Clear(self):
         """Set the displayed image to blank"""
         self.bmpImage.SetBitmap(self.blank)
         self.zoom = 1.0
 
-    def ScaleToFit(self) -> None:
+    def scale_to_fit(self) -> None:
         """
         Scale the image to fit in the container while maintaining
         the original aspect ratio.

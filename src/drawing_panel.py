@@ -1,10 +1,29 @@
-import random
-
 from wx import *
-import wx.lib.scrolledpanel as scrolled
 from math import ceil
 from src.cell import Cell
+import random
+import wx.lib.scrolledpanel as scrolled
 
+from src.util import threads_manager
+
+#TODO SAVE IMAGE
+#TODO SAVE FILTER AND EMPHASIS TO A CSV FILE
+#TODO MAKE AN OPTION TO SAVE EACH TOOL INFORMATION IN SEPARATED FILES
+#TODO IMPLEMENT SCROOL WITH MOUSE
+#TODO EMPHASIS MOTION
+#TODO TOOL TIP TEXT TO THE TOOLS
+#TODO INFOMRATION WINDOW WHEN A CELL IS CLICKED
+#TODO IMPROVE THE PERFORMANCE WITH THREADS IN CODE
+#TODO CEATE AN ABOUT MENU
+#TODO CREATE A HELP WINDOW???
+#TODO VERIFY THE POSSIBILITY TO USE COLORS IN TOOLS EIBITION
+#TODO VERIFY IF IT WILL BEM POSSIBLE TO USE ROUNDED RECTANGLE
+#TODO GIVE AN OPTION TO MAKE EVERITHING IN GREY SCALE
+#TODO GIVE AN OPTION TO CHOOSE ANNIMATION OR NOT
+#TODO GIVE AN OPTION TO CHANGE THE SOOM WITH A BAR
+#TODO DOCUMENTATION???
+#TODO ARTICLE!!!
+#TODO PRESENTATION!!!
 
 class DrawingPanel(scrolled.ScrolledPanel):
     def __init__(self, parent):
@@ -23,7 +42,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
         self.showed_cells = []
         self.origin_cells = []
         self.tools = []
-        self.filter = []
+        self.t_filter = []
         self.emphasis = []
         self.filtered_tools = 0
 
@@ -31,9 +50,6 @@ class DrawingPanel(scrolled.ScrolledPanel):
         self.w_h = 0
         self.i_w = 0
         self.i_h = 0
-
-        # self.SetBackgroundStyle(BG_STYLE_CUSTOM)
-        # self.SetBackgroundColour("WHITE")
 
         self.bmpImage = StaticBitmap(self, ID_ANY)
         sizer = BoxSizer(VERTICAL)
@@ -57,7 +73,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
         self.Bind(EVT_PAINT, self.on_paint_handler)
         self.Bind(EVT_SIZE, self.on_size_handler)
         self.Bind(EVT_TIMER, self.on_timer_handler)
-        self.Bind(EVT_MOUSEWHEEL, self.OnMouseWheel)
+        self.Bind(EVT_MOUSEWHEEL, self.on_mouse_wheel)
         self.Bind(EVT_KEY_UP, self.key_up_handler)
 
         CallLater(200, self.SetFocus)
@@ -82,17 +98,18 @@ class DrawingPanel(scrolled.ScrolledPanel):
         self.reset_drawing_base()
         event.Skip()
 
-    def OnMouseWheel(self, event):
+    def on_mouse_wheel(self, event):
         m = GetMouseState()
 
         if m.ControlDown():
             delta = 0.1 * event.GetWheelRotation() / event.GetWheelDelta()
             self.zoom = max(1, self.zoom + delta)
-            self.ScaleToFit()
+            self.scale_to_fit()
 
         event.Skip()
 
     def on_paint_handler(self, event):
+        self.drawing_update_timer.Stop()
         dc = MemoryDC()
         dc.SelectObject(self.bitmap)
         dc.Clear()
@@ -101,12 +118,10 @@ class DrawingPanel(scrolled.ScrolledPanel):
         dc.SetPen(Pen("WHITE", 2))
         dc.DrawRectangle(0, 0, self.i_w, self.i_h)
         dc.SetBrush(Brush("PINK"))
-        #for c in self.origin_cells:
-            # dc.SetBrush(Brush("LIGHT BLUE"))
-        #    dc.DrawRectangle(c.top_x, c.top_y, c.width, c.height)
         dc.SetBrush(Brush("LIGHT BLUE"))
-        for tool in self.tools:
-            tool.move_to_cell()
+
+        threads_manager(self.tools_mover, [self.tools])
+
         for tool in self.tools:
             tool.draw(dc)
         self.image = Bitmap.ConvertToImage(self.bitmap)
@@ -115,10 +130,17 @@ class DrawingPanel(scrolled.ScrolledPanel):
 
         self.bmpImage.SetBitmap(self.bitmap)
 
-        self.ScaleToFit()
+        self.scale_to_fit()
+        self.drawing_update_timer.Start(30)
         event.Skip()
 
     # -----------------------------------------------------------------------
+
+    def tools_mover(self, id: int, threads_qty: int, tools: []):
+        for i in range(id, len(tools), threads_qty):
+            if i >= len(tools):
+                break
+            tools[i].move_to_cell()
 
     def reset_drawing_base(self):
         self.i_w = self.w_w
@@ -145,7 +167,6 @@ class DrawingPanel(scrolled.ScrolledPanel):
 
         self.origin_cells.clear()
         for i in range(int(max_cells_per_line)):
-            l = i // cells_per_line
             c = i % cells_per_line
 
             x = c * self.cell_width + c * horizontal_gap + horizontal_gap // 2
@@ -172,14 +193,14 @@ class DrawingPanel(scrolled.ScrolledPanel):
                 cell.x_l, cell.y_l = self.i_w, self.i_h
             for cell in self.origin_cells:
                 cell.top_y = self.i_h + 5
-                cell.x_l, cell.y_l = self.i_w, self.i_h+5
+                cell.x_l, cell.y_l = self.i_w, self.i_h + 5
         self.set_cells_to_tools()
 
     def verify_filtered_cells(self):
         self.filtered_tools = 0
         for t in self.tools:
             t.is_filtered = False
-            for f in self.filter:
+            for f in self.t_filter:
                 if t.is_filtered:
                     break
                 for f_t in t.attributes["filter"]:
@@ -187,7 +208,6 @@ class DrawingPanel(scrolled.ScrolledPanel):
                         t.is_filtered = True
                         self.filtered_tools += 1
                         break
-
 
     def set_cells_to_tools(self):
         i = 0
@@ -205,21 +225,11 @@ class DrawingPanel(scrolled.ScrolledPanel):
         self.tools = tools
         self.reset_drawing_base()
 
-    def set_filter(self, filter):
-        self.filter = filter
+    def set_filter(self, t_filter):
+        self.t_filter = t_filter
         self.reset_drawing_base()
-        # for tool in self.tools:
-        #    r = random.randint(0, len(self.origin_cells) - 1)
-        #    tool.top_x = self.origin_cells[r].top_x
-        #    tool.top_y = self.origin_cells[r].top_y
 
-    def tools_sizes(self):
-        pass
-
-    def tools_positions(self):
-        pass
-
-    def ScaleToFit(self) -> None:
+    def scale_to_fit(self) -> None:
         if self.image:
 
             # get container (c) dimensions
@@ -231,7 +241,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
 
             # if new height is too large then recalculate sizes to fit
             if nh >= ch:
-                #nh = nh - 20
+                # nh = nh - 20
                 nh = nh - 20
                 nw = int(nh / self.aspect)
 

@@ -81,6 +81,7 @@ class MainFrame(Frame):
     def main_frame_on_close_handler(self, event):
         print("main frame on_close_handler")
         self.Destroy()
+        exit()
 
     def file_menu_quit_handler(self, event):
         print("main frame file_menu_quit_handler")
@@ -120,12 +121,8 @@ class MainFrame(Frame):
         tools = []
         c = 0
         for t in self.db:
-            attributes = {}
-            attributes["name"] = t["name"]
-            attributes["source"] = t["source"]
-            attributes["impact"] = t["impact"]
-            attributes["year"] = t["year"]
-            attributes["filter"] = t["filter"]
+            attributes = {"name": t["name"], "source": t["source"], "impact": t["impact"], "year": t["year"],
+                          "filter": t["filter"]}
             tool = Tool(attributes)
             i_w = self.drawing_panel.i_w + 5
             i_h = self.drawing_panel.i_h + 5
