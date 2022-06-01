@@ -3,7 +3,7 @@ from math import ceil
 
 
 class Tool:
-    def __init__(self, attributes: {}, x: int = 0, y: int = 0, line_color="BLACK", background_color="WHITE",
+    def __init__(self, attributes: dict, x: int = 0, y: int = 0, line_color="BLACK", background_color="WHITE",
                  time_to_grow: int = 1000, timer_set: int = 30):
         self.BASE_SIZE = 30
         self.BASE_MOVE_STEP = 5
@@ -68,7 +68,7 @@ class Tool:
             upsize = False
         self.update_size(upsize)
 
-    def calc_new_coords(self) -> (int, int):
+    def calc_new_coords(self) -> tuple():
         y_l = self.cell.y_l
         xp, yp = self.top_x, y_l - self.top_y
         xc, yc = self.cell.top_x, y_l - self.cell.top_y

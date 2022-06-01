@@ -1,10 +1,10 @@
 from wx import *
 from math import ceil
-from src.cell import Cell
+from cell import Cell
 import random
 import wx.lib.scrolledpanel as scrolled
 
-from src.util import threads_manager
+from util import threads_manager
 
 
 # TODO SAVE IMAGE
@@ -156,7 +156,7 @@ class DrawingPanel(scrolled.ScrolledPanel):
 
     # -----------------------------------------------------------------------
 
-    def tools_mover(self, id: int, threads_qty: int, tools: []):
+    def tools_mover(self, id: int, threads_qty: int, tools: list):
         for i in range(id, len(tools), threads_qty):
             if i >= len(tools):
                 break

@@ -4,8 +4,8 @@ import random
 
 from wx import *
 
-from src.drawing_panel import DrawingPanel
-from src.tool import Tool
+from drawing_panel import DrawingPanel
+from tool import Tool
 
 
 class MainFrame(Frame):
