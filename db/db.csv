@@ -1,0 +1,261 @@
+Ferramenta,Publicação,Link,Ano,Citações,Qualis,Fator Impacto
+EVmutation,Nature Biotechnology,https://www.nature.com/articles/nbt.3769,2017,349,A1,50516
+TANGO,Nature Biotechnology,https://doi.org/10.1038/nbt1012,2004,1517,A1,50516
+Interactome INSIDER,nature methods,https://doi.org/10.1038/nmeth.4540,2018,103,A1,44960
+IntOGen,Nature Methods,https://doi.org/10.1038/nmeth.2642,2013,499,A1,44960
+MutationTaster2,Nature Methods,https://doi.org/10.1038/nmeth.2890,2014,2880,A1,44960
+PolyPhen-2,Nature Methods,https://doi.org/10.1038/nmeth0410-248,2010,11913,A1,44960
+ClotBase,blood,https://doi.org/10.1182/blood-2010-04-282616,2010,3,A1,20107
+Phyre2,Nature Protocols,https://doi.org/10.1038/nprot.2015.053,2015,7565,A1,17240
+SIFT-algoritmo,Nature Protocols,https://doi.org/10.1038/nprot.2009.86,2009,6539,A1,17240
+Mechnetor,Nucleic Acids Research,https://dx.doi.org/10.1093%2Fnar%2Fgkab399,2021,1,A1,15542
+MTR3D,Nucleic Acids Research,https://doi.org/10.1093/nar/gkab428,2021,6,A1,15542
+mmCSM-PPI,Nucleic Acids Research,https://doi.org/10.1093/nar/gkab273,2021,2,A1,15542
+mCSM-PPI2,Nucleic Acids Research,https://doi.org/10.1093/nar/gkz383,2019,143,A1,15542
+mCSM-membrane,Nucleic Acids Research,https://doi.org/10.1093/nar/gkaa416,2020,22,A1,15542
+AlloSigMA 2,Nucleic Acids Research,https://doi.org/10.1093/nar/gkaa338,2020,31,A1,15542
+LIST-S2,Nucleic Acids Research,https://doi.org/10.1093/nar/gkaa288,2020,19,A1,15542
+MISCAST,Nucleic Acids Research,https://doi.org/10.1093/nar/gkaa361,2020,6,A1,15542
+CADD,Nucleic Acids Research,https://doi.org/10.1093/nar/gky1016,2019,1591,A1,15542
+CAUSALdb,Nucleic Acids Research,https://doi.org/10.1093/nar/gkz1026,2020,26,A1,15542
+MISTIC2,Nucleic Acids Research,https://doi.org/10.1093/nar/gky419,2018,21,A1,15542
+I-COMS,Nucleic Acids Research,https://doi.org/10.1093/nar/gkv572,2015,26,A1,15542
+Simple ClinVar,Nucleic Acids Research,https://doi.org/10.1093/nar/gkz411,2019,31,A1,15542
+GDA,Nucleic Acids Research,https://doi.org/10.1093/nar/gky434,2018,10,A1,15542
+SNPnexus,Nucleic Acids Research,https://doi.org/10.1093/nar/gky399,2018,127,A1,15542
+VarAFT,Nucleic Acids Research,https://doi.org/10.1093/nar/gky471,2018,108,A1,15542
+DynaMut,Nucleic Acids Research,https://doi.org/10.1093/nar/gky300,2018,449,A1,15542
+ActiveDriverDB,Nucleic Acids Research,https://doi.org/10.1093/nar/gkx973,2018,53,A1,15542
+nsSNPAnalyzer,Nucleic Acids Research,https://doi.org/10.1093/nar/gki372,2005,218,A1,15542
+MutaGene,Nucleic Acids Research,https://doi.org/10.1093/nar/gkx367,2017,53,A1,15542
+MutationAligner,Nucleic Acids Research,https://doi.org/10.1093/nar/gkv1132,2016,25,A1,15542
+CancerResource,Nucleic Acids Research,https://doi.org/10.1093/nar/gkv1283,2016,30,A1,15542
+HotSpot Wizard 2.0,Nucleic Acids Research,https://doi.org/10.1093/nar/gkw416,2016,77,A1,15542
+StructMAn,Nucleic Acids Research,https://doi.org/10.1093/nar/gkw364,2016,29,A1,15542
+MutaBind,Nucleic Acids Research,https://doi.org/10.1093/nar/gkw374,2016,97,A1,15542
+Mechismo,Nucleic Acids Research,https://doi.org/10.1093/nar/gku1094,2015,72,A1,15542
+SMD,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr363,2011,446,A1,15542
+SDM2,Nucleic Acids Research,https://doi.org/10.1093/nar/gkx439,2017,297,A1,15542
+Cancer3D,Nucleic Acids Research,https://doi.org/10.1093/nar/gku1140,2015,47,A1,15542
+3DGB,Nucleic Acids Research,https://doi.org/10.1093/nar/gkv476,2015,11,A1,15542
+Epigenome Browser,Nucleic Acids Research,https://doi.org/10.1093/nar/gkz348,2019,133,A1,15542
+STarMir,Nucleic Acids Research,https://doi.org/10.1093/nar/gku376,2014,86,A1,15542
+VarioWatch,Nucleic Acids Research,https://doi.org/10.1093/nar/gks397,2012,45,A1,15542
+AGGRESCAN3D,Nucleic Acids Research,https://doi.org/10.1093/nar/gkv359,2015,172,A1,15542
+PATHiVar,Nucleic Acids Research,https://doi.org/10.1093/nar/gkv349,2015,16,A1,15542
+STRIDE,Nucleic Acids Research,https://doi.org/10.1093/nar/gkh429,2004,903,A1,15542
+CSpritz,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr411,2011,97,A1,15542
+SPROUTS,Nucleic Acids Research,https://doi.org/10.1093/nar/gkn704,2009,36,A1,15542
+Platinum,Nucleic Acids Research,https://doi.org/10.1093/nar/gku966,2015,72,A1,15542
+Mfold,Nucleic Acids Research,https://doi.org/10.1093/nar/gkg595,2003,13701,A1,15542
+PredictProtein,Nucleic Acids Research,https://doi.org/10.1093/nar/gkh377,2004,1736,A1,15542
+VarMod,Nucleic Acids Research,https://doi.org/10.1093/nar/gku483,2014,19,A1,15542
+TSpred,Nucleic Acids Research,https://doi.org/10.1093/nar/gku319,2014,14,A1,15542
+DUET,Nucleic Acids Research,https://doi.org/10.1093/nar/gku411,2014,531,A1,15542
+GlobPlot,Nucleic Acids Research,https://doi.org/10.1093/nar/gkg519,2003,1150,A1,15542
+MoKCa database,Nucleic Acids Research,https://doi.org/10.1093/nar/gkn832,2009,63,A1,15542
+PupaSuite,Nucleic Acids Research,https://doi.org/10.1093/nar/gkl071,2006,257,A1,15542
+PGMRA,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt496,2013,34,A1,15542
+QualitySNPng,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt333,2013,39,A1,15542
+SNPedia,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr798,2012,233,A1,15542
+HPO,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt1026,2014,817,A1,15542
+DGV,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt958,2014,1086,A1,15542
+DECIPHER,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt937,2014,193,A1,15542
+dbGaP,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt1211,2014,375,A1,15542
+ClinVar,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt1113,2014,2129,A1,15542
+SDM,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr363,2011,446,A1,15542
+RosettaBackrub,Nucleic Acids Research,https://doi.org/10.1093/nar/gkq369,2010,129,A1,15542
+dbVar and DGVa,Nucleic Acids Research,https://doi.org/10.1093/nar/gks1213,2012,214,A1,15542
+RNAsnp,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt291,2013,108,A1,15542
+DigSee,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt531,2013,65,A1,15542
+SigniSite,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt497,2013,21,A1,15542
+BeAtMuSiC,Nucleic Acids Research,https://doi.org/10.1093/nar/gkt450,2013,231,A1,15542
+I-Mutant2.0,Nucleic Acids Research,https://doi.org/10.1093/nar/gki375,2005,1438,A1,15542
+SRide,Nucleic Acids Research,https://doi.org/10.1093/nar/gki409,2005,110,A1,15542
+MutDB,Nucleic Acids Research,https://doi.org/10.1093/nar/gki404,2005,53,A1,15542
+SIFT web server,Nucleic Acids Research,https://doi.org/10.1093/nar/gks539,2012,1621,A1,15542
+PASTA2.0,Nucleic Acids Research,https://doi.org/10.1093/nar/gku399,2014,290,A1,15542
+MolProbity,Nucleic Acids Research,https://doi.org/10.1093/nar/gkm216,2007,3801,A1,15542
+T-Coffee,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr245,2011,964,A1,15542
+Align-GVGD,Nucleic Acids Research,https://doi.org/10.1093/nar/gkj518,2006,350,A1,15542
+PhD-SNP,Nucleic Acids Research,https://doi.org/10.1093/nar/gkx369,2017,88,A1,15542
+Protein frustratometer,Nucleic Acids Research,https://doi.org/10.1093/nar/gks447,2012,145,A1,15542
+Protein Frustratometer 2,Nucleic Acids Research,https://doi.org/10.1093/nar/gkw304,2016,128,A1,15542
+PolyPhen,Nucleic Acids Research,https://doi.org/10.1093/nar/gkf493,2002,2559,A1,15542
+FASTSNP,Nucleic Acids Research,https://doi.org/10.1093/nar/gkl236,2006,572,A1,15542
+ProTherm,Nucleic Acids Research,https://doi.org/10.1093/nar/27.1.286,1999,156,A1,15542
+Monster,Nucleic Acids Research,https://doi.org/10.1093/nar/gkh434,2004,44,A1,15542
+PMUT update,Nucleic Acids Research,https://doi.org/10.1093/nar/gkx313,2017,136,A1,15542
+SNPeffect 4.0,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr996,2012,233,A1,15542
+topoSNP,Nucleic Acids Research,https://doi.org/10.1093/nar/gkh104,2004,122,A1,15542
+CUPSAT,Nucleic Acids Research,https://doi.org/10.1093/nar/gkl190,2006,523,A1,15542
+CPred,Nucleic Acids Research,https://doi.org/10.1093/nar/gks529,2012,26,A1,15542
+KD4v,Nucleic Acids Research,https://doi.org/10.1093/nar/gks474,2012,38,A1,15542
+Mutationassessor,Nucleic Acids Research,https://doi.org/10.1093/nar/gkr407,2011,1747,A1,15542
+SNPnexus,Nucleic Acids Research,https://doi.org/10.1093/nar/gks364,2012,190,A1,15542
+SNPnexus update,Nucleic Acids Research,https://doi.org/10.1093/nar/gkaa420,2020,57,A1,15542
+BALL-SNP,Genome Medicine,https://doi.org/10.1186/s13073-015-0190-y,2015,15,A1,12919
+WebLogo,Genome Research,http://doi.org/10.1101/gr.849004,2004,10576,A1,12809
+Condel,AMERICAN JOURNAL OF HUMAN GENETICS (AJHG),https://doi.org/10.1016/j.ajhg.2011.03.004,2011,802,A1,12095
+SWOTein,Bioinformatics,https://doi.org/10.1093/bioinformatics/btab034,2021,2,A1,8470
+HotSpot3D,Bioinformatics,https://doi.org/10.1093/bioinformatics/btaa258,2020,4,A1,8470
+VarMap,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz482,2019,20,A1,8470
+Rhapsody,Bioinformatics,https://doi.org/10.1093/bioinformatics/btaa127,2020,39,A1,8470
+CircosVCF,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw834,2017,17,A1,8470
+ProAffiMuSeq,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz829,2020,14,A1,8470
+SSIPe,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz926,2020,23,A1,8470
+mutationTCN,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz873,2020,8,A1,8470
+SPDI,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz856,2020,20,A1,8470
+AggreRATE-Pred,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz764,2020,11,A1,8470
+EvoEF2,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz740,2020,47,A1,8470
+pyDockEneRes,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz884,2020,6,A1,8470
+P3Fold,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz743,2020,1,A1,8470
+svtools,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz492,2019,16,A1,8470
+MolArt,Bioinformatics,https://doi.org/10.1093/bioinformatics/bty489,2018,18,A1,8470
+MoRFpred,Bioinformatics,https://doi.org/10.1093/bioinformatics/bts209,2012,314,A1,8470
+Ferret,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw147,2016,7,A1,8470
+3DBIONOTES v3.0,Bioinformatics,https://doi.org/10.1093/bioinformatics/btz118,2019,8,A1,8470
+WeSME,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw242,2017,60,A1,8470
+pStab,Bioinformatics,https://doi.org/10.1093/bioinformatics/btx697,2018,9,A1,8470
+Folding RaCe,Bioinformatics,https://doi.org/10.1093/bioinformatics/btv091,2015,20,A1,8470
+STRUM,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw361,2016,250,A1,8470
+PinSnps,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw153,2016,23,A1,8470
+INPS-MD,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw192,2016,103,A1,8470
+GenomeRunner,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw169,2016,30,A1,8470
+dbDSM,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw086,2016,28,A1,8470
+MAESTROweb,Bioinformatics,https://doi.org/10.1093/bioinformatics/btv769,2016,78,A1,8470
+ELASPIC,Bioinformatics,https://doi.org/10.1093/bioinformatics/btw031,2016,52,A1,8470
+mCSM,Bioinformatics,https://doi.org/10.1093/bioinformatics/btt691,2014,630,A1,8470
+Database.bio,Bioinformatics,https://doi.org/10.1093/bioinformatics/btv500,2015,7,A1,8470
+FoldNucleus,Bioinformatics,https://doi.org/10.1093/bioinformatics/btv369,2015,7,A1,8470
+SNPsnap,Bioinformatics,https://doi.org/10.1093/bioinformatics/btu655,2015,134,A1,8470
+Structure-PPi,Bioinformatics,https://doi.org/10.1093/bioinformatics/btv142,2015,37,A1,8470
+MACE,Bioinformatics,https://doi.org/10.1093/bioinformatics/btu835,2015,4,A1,8470
+RRDistMaps,Bioinformatics,https://doi.org/10.1093/bioinformatics/btu841,2015,50,A1,8470
+iPTREE-STAB,Bioinformatics,https://doi.org/10.1093/bioinformatics/btm100,2007,152,A1,8470
+SCide,Bioinformatics,https://doi.org/10.1093/bioinformatics/btg110,2003,111,A1,8470
+WET-STAB,Bioinformatics,https://doi.org/10.1093/bioinformatics/btp370,2009,39,A1,8470
+DDIG-in,Bioinformatics,https://doi.org/10.1093/bioinformatics/btu862,2015,56,A1,8470
+UNAFold,Bioinformatics,https://doi.org/10.1007/978-1-60327-429-6_1,2008,1062,A1,8470
+Phenoclustering,Bioinformatics,https://doi.org/10.1093/bioinformatics/btq311,2010,22,A1,8470
+PANOGA,Bioinformatics,https://doi.org/10.1093/bioinformatics/btt743,2014,28,A1,8470
+SNPdryad,Bioinformatics,https://doi.org/10.1093/bioinformatics/btt769,2014,69,A1,8470
+VIRAPOPS,Bioinformatics,https://doi.org/10.1093/bioinformatics/btt724,2014,8,A1,8470
+ChroMoS,Bioinformatics,https://doi.org/10.1093/bioinformatics/btt356,2013,35,A1,8470
+COREX/BEST server,Bioinformatics,https://doi.org/10.1093/bioinformatics/bti520,2005,54,A1,8470
+ESpritz,Bioinformatics,https://doi.org/10.1093/bioinformatics/btr682,2012,389,A1,8470
+MISTRAL,Bioinformatics,https://doi.org/10.1093/bioinformatics/btp506,2009,42,A1,8470
+Bluues server,Bioinformatics,https://doi.org/10.1093/bioinformatics/bts343,2012,64,A1,8470
+LS-SNP,Bioinformatics,https://doi.org/10.1093/bioinformatics/bti442,2005,263,A1,8470
+Pro-Maya,Bioinformatics,https://doi.org/10.1093/bioinformatics/btr576,2011,48,A1,8470
+RankViaContact,Bioinformatics,https://doi.org/10.1093/bioinformatics/btg293,2003,33,A1,8470
+MutaProt,Bioinformatics,https://doi.org/10.1093/bioinformatics/17.4.381,2001,17,A1,8470
+DISOPRED3,Bioinformatics,https://doi.org/10.1093/bioinformatics/btu744,2015,622,A1,8470
+PMUT,Bioinformatics,https://doi.org/10.1093/bioinformatics/bti486,2005,524,A1,8470
+M2SG,Bioinformatics,https://doi.org/10.1093/bioinformatics/btt507,2013,1,A1,8470
+COSMIC,British Journal of Cancer,https://doi.org/10.1038/sj.bjc.6601894,2004,1203,A1,7570
+PTMsnp,Frontiers in Cell and Developmental Biology,https://doi.org/10.3389/fcell.2020.593661,2020,2,C,7219
+SAAFEC-SEQ,International Journal of Molecular Sciences,https://doi.org/10.3390/ijms22020606,2021,19,B1,6132
+SAAMBE-3D,International Journal of Molecular Sciences,https://doi.org/10.3390/ijms21072563,2020,33,B1,6132
+RFAmyloid,International Journal of Molecular Sciences,https://www.mdpi.com/1422-0067/19/7/2071#,2018,38,B1,6132
+Activated protein C,Journal of Thrombosis and Haemostasis,https://doi.org/10.1111/j.1538-7836.2007.02491.x,2007,254,A1,5935
+MPTherm-pred,Journal of Molecular Biology,https://doi.org/10.1016/j.jmb.2020.09.005,2021,7,A2,5826
+ELASPIC2 (EL2),Journal of Molecular Biology,https://doi.org/10.1016/j.jmb.2021.166810,2021,10,A2,5826
+PhyreRisk,Journal of Molecular Biology,https://doi.org/10.1016/j.jmb.2019.04.043,2019,20,A2,5826
+Missense3D,Journal of Molecular Biology,https://doi.org/10.1016/j.jmb.2019.04.009,2019,168,A2,5826
+EASE-MM,Journal of Molecular Biology,https://doi.org/10.1016/j.jmb.2016.01.012,2016,92,A2,5826
+SuSPect,Journal of Molecular Biology,https://doi.org/10.1016/j.jmb.2014.04.026,2014,196,A2,5826
+FOLDEF,Journal of Molecular Biology,https://doi.org/10.1016/S0022-2836(02)00442-4,2002,1715,A2,5826
+GRIN database,Human Mutation,https://doi.org/10.1002/humu.24141,2020,8,A1,5805
+VIPdb,Human Mutation,https://doi.org/10.1002/humu.23858,2019,17,A1,5805
+MetaDome,Human Mutation,https://doi.org/10.1002/humu.23798,2019,95,A1,5805
+Factor XI deficiency database,Human Mutation,https://doi.org/10.1002/humu.20214,2005,71,A1,5805
+mutation3D,Human Mutation,https://doi.org/10.1002/humu.22963,2016,71,A1,5805
+WAVe,Human Mutation,https://doi.org/10.1002/humu.21499,2011,26,A1,5805
+Variobox,Human Mutation,https://doi.org/10.1002/humu.22474,2014,7,A1,5805
+Vanno,Human Mutation,https://doi.org/10.1002/humu.22684,2015,8,A1,5805
+VariSNP,Human Mutation,https://doi.org/10.1002/humu.22727,2015,45,A1,5805
+PON-Diso,Human Mutation,https://doi.org/10.1002/humu.22564,2014,24,A1,5805
+PON?P,Human Mutation,https://doi.org/10.1002/humu.22102,2012,110,A1,5805
+VariBench,Human Mutation,https://doi.org/10.1002/humu.22204,2013,125,A1,5805
+Hansa,Human Mutation,https://doi.org/10.1002/humu.21642,2012,58,A1,5805
+FATHMM,Human Mutation,https://doi.org/10.1002/humu.22225,2013,978,A1,5805
+wKinMut?2,Human Mutation,https://doi.org/10.1002/humu.22914,2016,11,A1,5805
+DisEMBL,Structure,https://doi.org/10.1016/j.str.2003.10.002,2003,1401,A1,5434
+PIIMS Server,Journal of Chemical Information and Modeling,https://doi.org/10.1021/acs.jcim.0c00966,2021,5,A2,5390
+ProTSPoM,Journal of Chemical Information and Modeling,https://doi.org/10.1021/acs.jcim.0c00256,2020,4,A2,5390
+PremPS,Plos Computational Biology,https://doi.org/10.1371/journal.pcbi.1008543,2020,39,A2,5379
+ENCoM,Plos Computational Biology,https://doi.org/10.1371/journal.pcbi.1003569,2014,85,A2,5379
+ProtFus,Plos Computational Biology,https://doi.org/10.1371/journal.pcbi.1007239,2019,7,A2,5379
+PredictSNP2,Plos Computational Biology,https://doi.org/10.1371/journal.pcbi.1004962,2016,122,A2,5379
+SNIP-IN,PLOS COMPUTATIONAL BIOLOGY,https://doi.org/10.1371/journal.pcbi.1003592,2014,82,A2,5379
+PredictSNP,PLOS COMPUTATIONAL BIOLOGY,https://doi.org/10.1371/journal.pcbi.1003440,2014,507,A2,5379
+MuPIT interactive,Human Genetics,https://doi.org/10.1007/s00439-013-1325-0,2013,73,A1,5331
+HiPathia,Oncotarget,https://dx.doi.org/10.18632%2Foncotarget.14107,2017,57,A1,5312
+mCSM-lig,Scientific Reports,https://doi.org/10.1038/srep29575,2016,100,A1,5134
+Crysalis,Scientific Reports,https://doi.org/10.1038/srep21383,2016,41,A1,5134
+CancerDR,Scientific Reports,https://doi.org/10.1038/srep01445,2013,110,A1,5134
+GREMET,Computer Methods and Programs in Biomedicine,https://doi.org/10.1016/j.cmpb.2013.04.002,2013,2,B2,5034
+VarQ,Frontiers in Genetics,https://doi.org/10.3389/fgene.2018.00620,2018,9,A2,4888
+PASE,Frontiers in Genetics,https://doi.org/10.3389/fgene.2013.00021,2013,17,A2,4888
+CoagVDb,Biological Research,http://dx.doi.org/10.1186S/40659-015-0028-5,2015,4,B3,4781
+G23D,BMC Genomics,https://doi.org/10.1186/s12864-016-3028-0,2016,19,A2,4478
+MuStab,BMC Genomics,https://doi.org/10.1186/1471-2164-11-S2-S5,2010,112,A2,4478
+NeEMO,BMC Genomics,https://doi.org/10.1186/1471-2164-15-S4-S7,2014,97,A2,4478
+Meta-SNP,BMC Genomics,https://doi.org/10.1186/1471-2164-14-S3-S2,2013,181,A2,4478
+WS-SNPs&GO,BMC Genomics,https://doi.org/10.1186/1471-2164-14-S3-S6,2013,214,A2,4478
+ProtaBank,Protein Science,https://doi.org/10.1002/pro.3406,2018,37,B1,4316
+DynaMut2,Protein Science,https://doi.org/10.1002/pro.3942,2021,63,B1,4316
+VarSite,PROTEIN SCIENCE,https://doi.org/10.1002/pro.3746,2020,34,B1,4316
+dbWGFP,Database,https://doi.org/10.1093/database/baw024,2016,24,B1,4159
+MSV3d,Database,https://doi.org/10.1093/database/bas018,2012,36,B1,4159
+CREDO,Database,https://doi.org/10.1093/database/bat049,2013,38,B1,4159
+MDPPM,Biophysical Journal,https://doi.org/10.1016/j.bpj.2020.12.002,2021,7,A2,4109
+ESPRESSO,Proteomics,https://doi.org/10.1002/pmic.201200175,2013,47,A2,3831
+BorodaTM,PLOS ONE,https://doi.org/10.1371/journal.pone.0219452,2019,11,B1,3788
+ePIANNO,PLOS ONE,https://doi.org/10.1371/journal.pone.0148321,2016,3,B1,3788
+SeqFeatR,PLOS ONE,https://doi.org/10.1371/journal.pone.0146409,2016,12,B1,3788
+Virtual pharmacist,PLOS ONE,https://doi.org/10.1371/journal.pone.0141105,2015,9,B1,3788
+iRDP,PLOS ONE,https://doi.org/10.1371/journal.pone.0139486,2015,21,B1,3788
+Vfold,PLOS ONE,https://doi.org/10.1371/journal.pone.0107504,2014,122,B1,3788
+AMYLPRED2,PLOS ONE,https://doi.org/10.1371/journal.pone.0054175,2013,257,B1,3788
+CanDrA,PLOS ONE,https://doi.org/10.1371/journal.pone.0077945,2013,100,B1,3788
+PON-P2,PLOS ONE,https://doi.org/10.1371/journal.pone.0117380,2015,166,B1,3788
+ENTPRISE,PLOS ONE,https://doi.org/10.1371/journal.pone.0150965,2016,23,B1,3788
+PROVEAN,PLOS ONE,https://doi.org/10.1371/journal.pone.0046688,2012,2524,B1,3788
+InCa,PLOS ONE,https://doi.org/10.1371/journal.pone.0084598,2014,24,B1,3788
+Mutationmapper,PLOS ONE,https://doi.org/10.1371/journal.pone.0071711,2013,30,B1,3788
+MutAIT,Mutagenesis,https://doi.org/10.1093/mutage/gev050,2016,8,B1,3679
+SPServer,BMC Bioinformatics,https://doi.org/10.1186/s12859-020-03770-5,2021,6,B1,3629
+MODICT,BMC Bioinformatics,https://doi.org/10.1186/s12859-016-1286-0,2016,2,B1,3629
+SNP2SIM,BMC Bioinformatics,https://doi.org/10.1186/s12859-019-2774-9,2019,6,B1,3629
+DNAscan,BMC Bioinformatics,https://doi.org/10.1186/s12859-019-2791-8,2019,10,B1,3629
+PsychoProt,BMC Bioinformatics,https://doi.org/10.1186/s12859-016-1124-4,2016,13,B1,3629
+GESPA,BMC Bioinformatics,https://doi.org/10.1186/s12859-015-0673-2,2015,6,B1,3629
+MAESTRO,BMC Bioinformatics,https://doi.org/10.1186/s12859-015-0548-6,2015,175,B1,3629
+Genome3D,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-11-444,2010,42,B1,3629
+SNiPlay,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-12-134,2011,76,B1,3629
+mrSNP,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-15-73,2014,58,B1,3629
+Vermont 2.0,BMC Bioinformatics,https://doi.org/10.1186/s12859-017-1789-3,2017,6,B1,3629
+MUBII-TB-DB,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-15-107,2014,90,B1,3629
+QCMF,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-15-96,2014,10,B1,3629
+Drug2Gene,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-15-68,2014,44,B1,3629
+wKinMut,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-14-345,2013,9,B1,3629
+iStable,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-14-S2-S5,2013,175,B1,3629
+Parepro,BMC BIoinformatics,https://doi.org/10.1186/1471-2105-8-450,2007,66,B1,3629
+MetaDisorder,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-13-111,2012,334,B1,3629
+AGGRESCAN,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-8-65,2007,847,B1,3629
+MUSCLE,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-5-113,2004,7639,B1,3629
+ASAView,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-5-51,2004,301,B1,3629
+SNPs3D,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-7-166,2006,543,B1,3629
+PPSC,Amino Acids,https://doi.org/10.1007/s00726-012-1407-7,2013,38,B1,3600
+PROlocalizer,Amino Acids,https://doi.org/10.1007/s00726-010-0724-y,2011,31,B1,3600
+MILAMP,IEEE/ACM Transactions on Computational Biology and Bioinformatics,https://doi.org/10.1109/TCBB.2019.2936846,2019,5,B2,3395
+PicSNP,Biochemical and Biophysical Research Communications,https://doi.org/10.1006/bbrc.2001.5576,2001,29,B1,3381
+DIM_Pred,Analytical Biochemistry,https://doi.org/10.1016/j.ab.2015.08.028,2015,11,B2,3049
+iSEE,PROTEINS,https://doi.org/10.1002/prot.25630,2019,41,B1,2752
+TKSA?MC,PROTEINS,https://doi.org/10.1002/prot.25599,2018,16,B1,2752
+Ccharppi,PROTEINS,https://doi.org/10.1002/prot.24761,2015,14,B1,2752
+MUpro,PROTEINS,https://doi.org/10.1002/prot.20810,2006,778,B1,2752
+PharmGKB,Pharmacogenomics,https://doi.org/10.1007/978-1-62703-435-7_20,2013,241,B1,2587
+CDC Hemophilia B,Molecular Genetics & Genomic Medicine,https://doi.org/10.1002/mgg3.30,2013,47,C,2389
