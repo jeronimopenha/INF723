@@ -1,3 +1,16 @@
+'''
+TODO
+Perguntas a serem respondidas:
+1 - No gráfico sunburst - Colocar um campo dropdown com filtro
+2 - clicou na ferramenta, abre em uma nova janela o link da mesma.
+3 - Filtros - relevância - qualis, citações e ano.
+Filtro com o periódico????
+
+intervalo com barra para os anos
+lodaing é frufru
+Importante o help
+'''
+
 import base64
 import io
 from os import read
@@ -17,14 +30,35 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 def main_layout() -> html.Div:
     return html.Div([
-        html.H1('INF 723 - Visor', style={'text-align': 'center'}),
+        html.H1('INF 723 - MutAnTs', style={'text-align': 'center'}),
         html.P("AQUI SERÁ PRECISO COLOCAR O QUE É A FERRAMENTA E PRA QUE ELA SERVE"),
         html.P("PRECISAMOS VER UMA FORMA DE APRESENTAR A FERRAMENTA E OS GRÁFICOS A SEREM COLOCADOS"),
         html.P("PRECISAMOS DEFINIR O LAYOUT DE ACORDO COM O QUE VC ESTUDOU EM GESTALT E ALGUMA COISA DE VAZIO LÁ HEHEH"),
         html.P("EU OLHAREI A QUESTÃO DAS CORES, MAS ACHO QUE O PLOTLY JÁ ESCOLHE AS CORES DE ACORDO COM O QUE VI NO SITE"),
         html.P("NESSE MOMENTO EU ACHO QUE É MAIS IMPORTANTE A GENTE DAR ATENÇÃO AOS PONTOS DA MATÉRIA EM RELAÇÃO A VISUALIZAÇÃO DO QUE EM RELAÇÃO A QUANTIDADE DE GRÁFICOS EM SI"),
         dcc.Location(id='url', refresh=False),
-        html.Div(id='page-content'),
+        html.H2(f'Open File:'),
+        html.P(
+            'Choose the data base file ".csv", and drag and drop it below or click in the box below to open the file upload window:'),
+        dcc.Upload(
+            id="upload-db",
+            children=html.Div([
+                'Drag and Drop or ',
+                html.A('Select Files')
+            ]),
+            style={
+                "width": "100%",
+                "height": "60px",
+                "lineHeight": "60px",
+                "borderWidth": "1px",
+                "borderStyle": "dashed",
+                "borderRadius": "5px",
+                "textAlign": "center",
+                "margin": "10px",
+            },
+            multiple=False,
+        ),
+        html.Div(id='output-data-upload'),
         html.H3(f'AQUI COLOCAREMOS OS AUTORES DA FERRAMENTA'),
         html.P("This is a practical work created as a fundamental \
                     part of evaluation for the discipline for the \
@@ -140,7 +174,7 @@ def read_csv(contents, filename, date):
         return html.Div([
             'There was an error processing this file.'
         ])
-    fig = px.sunburst(df, path=['qualis', 'publication', 'year', 'name'])
+    fig = px.sunburst(df, path=['qualis', 'publication', 'year', 'name'], maxdepth=4)
 
     return html.Div([
         dcc.Graph(style={'height': '1024px'}, figure=fig)
