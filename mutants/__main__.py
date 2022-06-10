@@ -189,8 +189,8 @@ def filter_graphic(clickData):
 def filter_graphic(qualis_value, journal_value, year_slider_value, citation_slider_value):
     print('filter_graphic')
     df = app.df
-    #df = df.loc[(df['ano']>=(year_slider_value[0]))&(df['ano']<=(year_slider_value[1]))]
-    #df = df.loc[(df['citacoes']>=(citation_slider_value[0]))&(df['citacoes']<=(citation_slider_value[1]))]
+    df = df.loc[(df['ano']>=(year_slider_value[0]))&(df['ano']<=(year_slider_value[1]))]
+    df = df.loc[(df['citacoes']>=(citation_slider_value[0]))&(df['citacoes']<=(citation_slider_value[1]))]
     df = df.loc[df['qualis'].isin(qualis_value)]
     df = df.loc[df['publicacao'].isin(journal_value)]
     if df is not None:
