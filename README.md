@@ -18,7 +18,7 @@ Jeronimo Costa Penha - ES91669
 3. Existem duas formas de obter o código do projeto para execução local: por clonagem via **git** ou por download do código com extensão **zip**.
     1. Via clonagem do repositório via **git**:
     - É necessária a instalação do aplicativo **git**.
-    - para clonar o repositório basta usar o comando a seguir:
+    - Para clonar o repositório basta usar o comando a seguir:
     $ git clone https://github.com/jeronimopenha/INF723.git
     2. Via download do código com extensão **zip**:
     - Basta realizar o download do código comprimido que pode ser encontrado no link mostrado com um círculo vermelho na imagem abaixo.

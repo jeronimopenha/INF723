@@ -61,7 +61,7 @@ def main_layout() -> html.Div:
         ]),
         html.Div(style={'border-style': 'none', 'height': '99%', 'width': '28%', 'float': 'left', 'margin': 'auto', 'padding': '10px 10px 10px 10px'},
                  children=[
-            html.H6("Qualis:: ", style={'font-weight': 'bold'}),
+            html.H6("Qualis: ", style={'font-weight': 'bold'}),
             html.Div(style={'border-style': 'none', 'width': '100%', 'float': 'left', 'margin': 'auto'},
                      children=[
                 dcc.Dropdown(
