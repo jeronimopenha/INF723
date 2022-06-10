@@ -1,4 +1,3 @@
-
 import base64
 import json
 from numpy import NaN, empty
@@ -22,7 +21,7 @@ def main_layout() -> html.Div:
                      children=[
                 html.Div(style={'border-style': 'none', 'height': '5%', 'width': '49%', 'float': 'left', 'margin': 'auto'},
                          children=[
-                    html.H6("Filtro de ano:", style={'font-weight': 'bold'}),
+                    html.H6("Ano de Publicação:", style={'font-weight': 'bold'}),
                     dcc.RangeSlider(app.ano_min, app.ano_max,
                                     marks={i: f'{i}' for i in range(app.ano_min, app.ano_max, 1 if (
                                         app.ano_max-app.ano_min) < app.LIMIT_SCALE else (app.ano_max-app.ano_min)//app.LIMIT_SCALE)},
@@ -30,7 +29,7 @@ def main_layout() -> html.Div:
                 ]),
                 html.Div(style={'border-style': 'none', 'height': '5%', 'width': '49%', 'float': 'right', 'margin': 'auto'},
                          children=[
-                    html.H6("Filtro de Citações:", style={
+                    html.H6("Quantidade de Citações:", style={
                             'font-weight': 'bold'}),
                     dcc.RangeSlider(0, app.cit_max,
                                     marks={i: f'{i}' for i in range(
@@ -54,16 +53,16 @@ def main_layout() -> html.Div:
                     html.Strong('Periódico: '), html.Br(),
                     html.Strong('Link: '), html.Br(),
                     html.Strong('Ano: '), html.Br(),
-                    html.Strong('Citacoes: '), html.Br(),
+                    html.Strong('Citações: '), html.Br(),
                     html.Strong('Qualis: '), html.Br(),
-                    html.Strong('Impacto: '), html.Br(),
+                    html.Strong('Fator JCR: '), html.Br(),
                 ])
             ], id='tools-data')
         ]),
         html.Div(style={'border-style': 'none', 'height': '99%', 'width': '28%', 'float': 'left', 'margin': 'auto', 'padding': '10px 10px 10px 10px'},
                  children=[
-            html.H6("Seletor do Qualis:: ", style={'font-weight': 'bold'}),
-            html.Div(style={'border-style': 'solid', 'width': '100%', 'float': 'left', 'margin': 'auto'},
+            html.H6("Qualis:: ", style={'font-weight': 'bold'}),
+            html.Div(style={'border-style': 'none', 'width': '100%', 'float': 'left', 'margin': 'auto'},
                      children=[
                 dcc.Dropdown(
                     app.qualis, app.qualis, multi=True, id='qualis_filter')
@@ -71,7 +70,7 @@ def main_layout() -> html.Div:
         ]),
         html.Div(style={'border-style': 'none', 'height': '99%', 'width': '28%', 'float': 'left', 'margin': 'auto', 'padding': '10px 10px 10px 10px'},
                  children=[
-            html.H6("Seletor de Periódico: ", style={'font-weight': 'bold'}),
+            html.H6("Periódico: ", style={'font-weight': 'bold'}),
             html.Div([
                 html.Div(style={'border-style': 'none', 'width': '100%', 'float': 'left', 'margin': 'auto'},
                          children=[
@@ -158,9 +157,9 @@ def filter_graphic(clickData):
         html.Strong('Periódico: '), html.Br(),
         html.Strong('Link: '), html.Br(),
         html.Strong('Ano: '), html.Br(),
-        html.Strong('Citacoes: '), html.Br(),
+        html.Strong('Citações: '), html.Br(),
         html.Strong('Qualis: '), html.Br(),
-        html.Strong('Impacto: '), html.Br(),
+        html.Strong('Fator JCR: '), html.Br(),
     ])
     if clickData is None:
         return ret
@@ -174,9 +173,9 @@ def filter_graphic(clickData):
             html.Strong('Link: '), html.A(str(a['link'].item()), href=str(
                 a['link'].item()), target="_blank"), html.Br(),
             html.Strong('Ano: '), str(a['ano'].item()), html.Br(),
-            html.Strong('Citacoes: '), str(a['citacoes'].item()), html.Br(),
+            html.Strong('Citações: '), str(a['citacoes'].item()), html.Br(),
             html.Strong('Qualis: '), str(a['qualis'].item()), html.Br(),
-            html.Strong('Impacto: '), str(a['impacto'].item()), html.Br(),
+            html.Strong('Fator JCR: '), str(a['impacto'].item()), html.Br(),
         ])
     return ret
 
