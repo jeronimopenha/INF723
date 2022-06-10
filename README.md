@@ -1,12 +1,13 @@
 # INF723 - MutAnTs
 Este trabalho prático foi desenvolvido como parte fundamental para a avaliação da disciplina Visualização de Dados do curso de pós graduação Stricto Sensu em Ciência da Computação pela Universidade Federal de Viçosa - MG.
 
-###Professora:
+### Professora:
 Sabrina Silveira
             
-####Estudantes:
+#### Estudantes:
             
 Cleiton Monteiro - ES89321
+
 Jeronimo Costa Penha - ES91669
 
 
@@ -22,11 +23,12 @@ Jeronimo Costa Penha - ES91669
     2. Via download do código com extensão **zip**:
     - Basta realizar o download do código comprimido que pode ser encontrado no link mostrado com um círculo vermelho na imagem abaixo.
     <img src="/img/zip.png" alt="MarineGEO circle logo" style="width:400px;"/>
+    
     - Descomprimir o arquivo baixado.
 4. Uma vez com o o repositório pronto, entrar na pasta do repositório: $cd INF723
 5. Instalar as dependências: ~/INF723$ pip install -r requirements.txt
 6. Para executar a ferramenta basta executar o seguinte comando: ~/INF723$ python mutants
-7. Caso a execução ocorra corretamente, um endereço IP será exibido para que o acesso à ferramenta possa ser feito via navegador WEB. exemplo de execução na imagem abaixo:
+7. Caso a execução ocorra corretamente, um endereço IP será exibido para que o acesso à ferramenta possa ser feito via navegador WEB. Um exemplo de execução pode ser visto na imagem abaixo:
 <img src="/img/ip.png" alt="MarineGEO circle logo" style="width:500;"/>
 
 
