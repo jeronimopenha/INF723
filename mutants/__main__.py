@@ -21,11 +21,13 @@ def main_layout() -> html.Div:
                      children=[
                 html.Div(style={'border-style': 'none', 'height': '5%', 'width': '49%', 'float': 'left', 'margin': 'auto'},
                          children=[
-                    html.H6("Ano de Publicação:", style={'font-weight': 'bold'}),
+                    html.H6("Ano de Publicação:", style={
+                            'font-weight': 'bold'}),
                     dcc.RangeSlider(app.ano_min, app.ano_max,
                                     marks={i: f'{i}' for i in range(app.ano_min, app.ano_max, 1 if (
                                         app.ano_max-app.ano_min) < app.LIMIT_SCALE else (app.ano_max-app.ano_min)//app.LIMIT_SCALE)},
-                                    value=[app.ano_min, app.ano_max], id='year_slider')
+                                    value=[app.ano_min, app.ano_max], id='year_slider'),
+                    html.P(id='year_range'),
                 ]),
                 html.Div(style={'border-style': 'none', 'height': '5%', 'width': '49%', 'float': 'right', 'margin': 'auto'},
                          children=[
@@ -34,7 +36,8 @@ def main_layout() -> html.Div:
                     dcc.RangeSlider(0, app.cit_max,
                                     marks={i: f'{i}' for i in range(
                                         0, app.cit_max, 1 if app.cit_max < app.LIMIT_SCALE else app.cit_max//app.LIMIT_SCALE)},
-                                    value=[0, app.cit_max], id='citation_slider')
+                                    value=[0, app.cit_max], id='citation_slider'),
+                    html.P(id='citation_range'),
                 ]),
             ]),
             html.Div(style={'border-style': 'none', 'height': 'auto', 'width': '99%', 'float': 'left', 'padding': '10px 5px 5px 2px', 'margin': 'auto'},
@@ -184,13 +187,15 @@ def filter_graphic(clickData):
     Output('graph-interact', 'figure'),
     Input('qualis_filter', 'value'),
     Input('journal_filter', 'value'),
-    Input('year_slider','value'),
+    Input('year_slider', 'value'),
     Input('citation_slider', 'value'))
 def filter_graphic(qualis_value, journal_value, year_slider_value, citation_slider_value):
     print('filter_graphic')
     df = app.df
-    df = df.loc[(df['ano']>=(year_slider_value[0]))&(df['ano']<=(year_slider_value[1]))]
-    df = df.loc[(df['citacoes']>=(citation_slider_value[0]))&(df['citacoes']<=(citation_slider_value[1]))]
+    df = df.loc[(df['ano'] >= (year_slider_value[0])) &
+                (df['ano'] <= (year_slider_value[1]))]
+    df = df.loc[(df['citacoes'] >= (citation_slider_value[0])) &
+                (df['citacoes'] <= (citation_slider_value[1]))]
     df = df.loc[df['qualis'].isin(qualis_value)]
     df = df.loc[df['publicacao'].isin(journal_value)]
     if df is not None:
@@ -198,6 +203,22 @@ def filter_graphic(qualis_value, journal_value, year_slider_value, citation_slid
             df, path=['qualis', 'publicacao', 'ano', 'nome'], maxdepth=4, width=900, height=900)
         app.fig = fig
     return app.fig
+
+
+@app.callback(
+    Output('year_range', 'children'),
+    Input('year_slider', 'value'))
+def year_range_updater(year_slider_value):
+    print('year_range_updater')
+    return "Entre os anos de %d e %d" % (int(year_slider_value[0]), int(year_slider_value[1]))
+
+
+@app.callback(
+    Output('citation_range', 'children'),
+    Input('citation_slider', 'value'))
+def citation_range_updater(citation_slider_value):
+    print('citation_range_updater')
+    return "Citações entre %d e %d" % (int(citation_slider_value[0]), int(citation_slider_value[1]))
 
 
 if __name__ == '__main__':
