@@ -54,7 +54,7 @@ def main_layout() -> html.Div:
                 html.Div([
                     html.Strong('Nome: '), html.Br(),
                     html.Strong('Periódico: '), html.Br(),
-                    html.Strong('Link: '), html.Br(),
+                    html.Strong('Doi: '), html.Br(),
                     html.Strong('Ano: '), html.Br(),
                     html.Strong('Citações: '), html.Br(),
                     html.Strong('Qualis: '), html.Br(),
@@ -158,7 +158,7 @@ def filter_graphic(clickData):
     ret = html.Div([
         html.Strong('Nome: '), html.Br(),
         html.Strong('Periódico: '), html.Br(),
-        html.Strong('Link: '), html.Br(),
+        html.Strong('Doi: '), html.Br(),
         html.Strong('Ano: '), html.Br(),
         html.Strong('Citações: '), html.Br(),
         html.Strong('Qualis: '), html.Br(),
@@ -173,7 +173,7 @@ def filter_graphic(clickData):
         ret = html.Div([
             html.Strong("Nome: "),  str(a['nome'].item()), html.Br(),
             html.Strong('Periódico: '), str(a['publicacao'].item()), html.Br(),
-            html.Strong('Link: '), html.A(str(a['link'].item()), href=str(
+            html.Strong('Doi: '), html.A(str(a['link'].item()), href=str(
                 a['link'].item()), target="_blank"), html.Br(),
             html.Strong('Ano: '), str(a['ano'].item()), html.Br(),
             html.Strong('Citações: '), str(a['citacoes'].item()), html.Br(),
